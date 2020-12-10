@@ -1,0 +1,48 @@
+div#header {
+	display: flex;
+	flex-direction: row;
+	color: darkslategray;
+	border-style: solid;
+	border-width: 2px;
+    border-radius: 10px;
+    padding-left: 3vw;
+    padding-bottom: 0;
+}
+div#title {
+	text-align: center;
+	vertical-align: top;
+}
+ul#header {
+	display: flex;
+	flex-direction: row;
+	vertical-align: middle;
+}
+#blds {
+	display: flex;
+	flex-direction: row;
+}
+.box {
+	color: darkslategrey;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px grey;
+	width: 20vw;
+	height: 25vh;
+	margin: 3vw;
+}
+h1 {
+    margin-top: 5px;
+    margin-bottom: -15px;
+}
+
+h4 {
+	color: darkslategrey;
+	border-radius: 5px;
+}
+
+button {
+	color: mintcream;
+	background-color: darkslategrey;
+	border-radius: 5px;
+}
