@@ -12,12 +12,16 @@ div.inside-box {
 	text-align: center;
 	vertical-align: top;
 }
+div#search-container {
+	text-align: center;
+}
 ul#header {
 	display: flex;
 	flex-direction: row;
-	vertical-align: middle;
+    vertical-align: middle;
+    align-items: right;
 }
-#blds {
+#box-container {
 	display: flex;
 	flex-direction: row;
 }
@@ -45,4 +49,15 @@ button {
 	color: mintcream;
 	background-color: darkslategrey;
 	border-radius: 5px;
+}
+
+#sign-up {
+    color: darkslategrey;
+	background-color: mintcream;
+    border-radius: 5px;
+    margin-right: 1vw;
+}
+
+input {
+    margin-right: 1vw
 }

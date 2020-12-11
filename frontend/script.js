@@ -8,16 +8,15 @@ window.addEventListener('DOMContentLoaded', () => {
     const addBreakfast = document.querySelector('#add-breakfast')
     const addLunch = document.querySelector('#add-lunch');
     const addDinner = document.querySelector('#add-dinner');
-    const addSnack = document.querySelector('#add-snack');
+    const addSnack = document.querySelector('#add-snacks');
 
     const form = document.createElement('form')
-    const label = document.createElement('label')
-    label.innerText = 'Search foods: '
     const input = document.createElement('input');
     input.setAttribute('type', 'text')
+    input.setAttribute('placeholder', 'Search foods')
     const searchButton = document.createElement('button')
     searchButton.innerText = 'Search'
-    form.append(label, input, searchButton)
+    form.append(input, searchButton)
 
     const searchContainer = document.querySelector('#search-container');
     const buildSearch = () => {
