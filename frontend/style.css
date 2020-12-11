@@ -8,7 +8,7 @@ div#header {
     padding-left: 3vw;
     padding-bottom: 0;
 }
-div#title {
+div.inside-box {
 	text-align: center;
 	vertical-align: top;
 }
