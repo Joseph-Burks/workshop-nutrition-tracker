@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log(res)
             searchResultsBranded = res.branded;
             searchResultsCommon = res.common;
+            results.innerHTML = ''
             searchResultsBranded.map(item => {
                 let listItem = document.createElement('div');
                 listItem.className = 'results-li'
