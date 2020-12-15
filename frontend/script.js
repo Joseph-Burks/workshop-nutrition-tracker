@@ -42,12 +42,23 @@ window.addEventListener('DOMContentLoaded', () => {
             searchResultsBranded.map(item => {
                 let listItem = document.createElement('div');
                 listItem.className = 'results-li'
-                listItem.innerText = `${item.brand_name_item_name}`;
+                const food = document.createElement('div')
+                food.className = 'food-item'
+                food.innerText = `${item.brand_name_item_name}`;
+                const addButton = document.createElement('button')
+                addButton.innerText = '+'
+                listItem.append(food, addButton)
                 return results.append(listItem);
             });
             searchResultsBranded.map(item => {
                 let listItem = document.createElement('div');
-                listItem.innerText = `${item.food_name}`;
+                listItem.className = 'results-li';
+                const food = document.createElement('div');
+                food.className = 'food-item';
+                food.innerText = `${item.food_name}`;
+                const addButton = document.createElement('button');
+                addButton.innerText = '+';
+                listItem.append(food, addButton);
                 return results.append(listItem);
             });
         });

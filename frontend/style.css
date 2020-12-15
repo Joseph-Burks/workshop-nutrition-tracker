@@ -61,3 +61,16 @@ button {
 input {
     margin-right: 1vw
 }
+
+
+div.results-li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    /* padding-left: 25vw; */
+}
+div.food-item {
+    padding-right: 2vw;
+}
