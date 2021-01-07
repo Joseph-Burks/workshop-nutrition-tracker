@@ -39,7 +39,10 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log(res)
             searchResultsBranded = res.branded;
             searchResultsCommon = res.common;
-            results.innerHTML = ''
+            brandedResultsUl.innerHTML = '';
+            commonResultsUl.innerHTML = '';
+            results.append(brandedResultsDiv, commonResultsDiv);
+
             searchResultsBranded.map(item => {
                 let listItem = document.createElement('div');
                 listItem.className = 'results-li'
@@ -47,27 +50,43 @@ window.addEventListener('DOMContentLoaded', () => {
                 food.className = 'food-item'
                 food.innerText = `${item.brand_name_item_name}`;
                 const addButton = document.createElement('button')
+                addButton.className = 'results-li-add';
                 addButton.innerText = '+'
                 listItem.append(food, addButton)
-                return results.append(listItem);
+                return brandedResultsUl.append(listItem);
             });
-            searchResultsBranded.map(item => {
+            searchResultsCommon.map(item => {
                 let listItem = document.createElement('div');
                 listItem.className = 'results-li';
                 const food = document.createElement('div');
                 food.className = 'food-item';
                 food.innerText = `${item.food_name}`;
                 const addButton = document.createElement('button');
+                addButton.className = 'results-li-add'
                 addButton.innerText = '+';
                 listItem.append(food, addButton);
-                return results.append(listItem);
+                return commonResultsUl.append(listItem);
             });
         });
 	});
     form.append(input, searchButton);
     
     const results = document.createElement('div')
-    
+    results.id = 'results-div'
+
+    const brandedResultsDiv = document.createElement('div')
+    brandedResultsDiv.className = 'branded-results-div'
+    const brandedTitle = document.createElement('h2')
+    brandedTitle.innerText = 'Branded'
+    const brandedResultsUl = document.createElement('div')
+    brandedResultsDiv.append(brandedTitle, brandedResultsUl)
+
+    const commonResultsDiv = document.createElement('div');
+    commonResultsDiv.className = 'common-results-div';
+    const commonTitle = document.createElement('h2');
+    commonTitle.innerText = 'Common';
+    const commonResultsUl = document.createElement('div');
+    commonResultsDiv.append(commonTitle, commonResultsUl);
 
 	const searchContainer = document.querySelector('#search-container');
 	const buildSearch = () => {

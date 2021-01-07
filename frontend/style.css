@@ -1,3 +1,8 @@
+html *
+{
+   font-family: Arial !important;
+}
+
 div#header {
 	display: flex;
 	flex-direction: row;
@@ -40,6 +45,11 @@ h1 {
     margin-bottom: -15px;
 }
 
+h2 {
+	color: darkslategrey;
+	border-radius: 5px;
+}
+
 h4 {
 	color: darkslategrey;
 	border-radius: 5px;
@@ -62,15 +72,41 @@ input {
     margin-right: 1vw
 }
 
-
-div.results-li {
+.results-li {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-top: 10px;
+	padding: 1%;
+	color: darkslategrey;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	margin: 1%;
     /* padding-left: 25vw; */
 }
+
 div.food-item {
     padding-right: 2vw;
+}
+
+#results-div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.branded-results-div {
+	flex-basis: 50%;
+	margin: 2%;
+}
+
+.common-results-div {
+	flex-basis: 50%;
+	margin: 2%;
+}
+
+.results-li-add {
+	margin-left: auto;
 }
