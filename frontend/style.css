@@ -98,15 +98,32 @@ div.food-item {
 }
 
 .branded-results-div {
-	flex-basis: 50%;
+	flex-basis: 60%;
 	margin: 2%;
 }
 
-.common-results-div {
-	flex-basis: 50%;
-	margin: 2%;
+.add-delete-button {
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-.results-li-add {
+.cal-div {
+	display: flex;
+	flex-direction: row;
 	margin-left: auto;
+}
+
+#calorie-count-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#calorie-count {
+	margin-left: 10px;
+}
+
+.food-li-div {
+	display: flex;
+	flex-direction: row;
 }

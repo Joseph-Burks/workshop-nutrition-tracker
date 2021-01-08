@@ -4,8 +4,9 @@ window.addEventListener('DOMContentLoaded', () => {
 	let dinnerItems = [];
     let snackItems = [];
     let searchResultsBranded = []
-    let searchResultsCommon = [];
+    let selectedUL = ''
 
+    const calorieCounter = document.querySelector('#calorie-count')
 	const breakfastUL = document.querySelector('.breakfast-item-container');
 	const lunchUL = document.querySelector('.lunch-item-container');
 	const dinnerUL = document.querySelector('.dinner-item-container');
@@ -25,7 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	searchButton.addEventListener('click', (e) => {
         e.preventDefault()
         searchResultsBranded = []
-        searchResultsCommon = [];
         let term = input.value
         input.value = null
 		fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${term}`, {
@@ -38,34 +38,35 @@ window.addEventListener('DOMContentLoaded', () => {
 		.then(res => {
             console.log(res)
             searchResultsBranded = res.branded;
-            searchResultsCommon = res.common;
             brandedResultsUl.innerHTML = '';
-            commonResultsUl.innerHTML = '';
-            results.append(brandedResultsDiv, commonResultsDiv);
+            results.append(brandedResultsDiv);
 
             searchResultsBranded.map(item => {
                 let listItem = document.createElement('div');
                 listItem.className = 'results-li'
+
                 const food = document.createElement('div')
                 food.className = 'food-item'
                 food.innerText = `${item.brand_name_item_name}`;
+
+                const calDiv = document.createElement('div')
+                calDiv.className = 'cal-div'
+
+                const cals = document.createElement('div')
+                cals.innerText = `${item.nf_calories} calories`
+
                 const addButton = document.createElement('button')
-                addButton.className = 'results-li-add';
+                addButton.className = 'add-delete-button';
                 addButton.innerText = '+'
-                listItem.append(food, addButton)
+                addButton.addEventListener('click', () => {
+                    createLI(item)
+                    brandedResultsUl.innerHTML = '';
+                    searchContainer.innerHTML = '';
+                })
+
+                calDiv.append(cals, addButton)
+                listItem.append(food, calDiv)
                 return brandedResultsUl.append(listItem);
-            });
-            searchResultsCommon.map(item => {
-                let listItem = document.createElement('div');
-                listItem.className = 'results-li';
-                const food = document.createElement('div');
-                food.className = 'food-item';
-                food.innerText = `${item.food_name}`;
-                const addButton = document.createElement('button');
-                addButton.className = 'results-li-add'
-                addButton.innerText = '+';
-                listItem.append(food, addButton);
-                return commonResultsUl.append(listItem);
             });
         });
 	});
@@ -76,17 +77,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const brandedResultsDiv = document.createElement('div')
     brandedResultsDiv.className = 'branded-results-div'
-    const brandedTitle = document.createElement('h2')
-    brandedTitle.innerText = 'Branded'
     const brandedResultsUl = document.createElement('div')
-    brandedResultsDiv.append(brandedTitle, brandedResultsUl)
-
-    const commonResultsDiv = document.createElement('div');
-    commonResultsDiv.className = 'common-results-div';
-    const commonTitle = document.createElement('h2');
-    commonTitle.innerText = 'Common';
-    const commonResultsUl = document.createElement('div');
-    commonResultsDiv.append(commonTitle, commonResultsUl);
+    brandedResultsDiv.append(brandedResultsUl)
 
 	const searchContainer = document.querySelector('#search-container');
 	const buildSearch = () => {
@@ -95,9 +87,43 @@ window.addEventListener('DOMContentLoaded', () => {
 	};
 
 	addBreakfast.addEventListener('click', () => {
-		let selectedFood = buildSearch();
+        selectedUL = breakfastUL
+		buildSearch();
 	});
-	addLunch.addEventListener('click', () => {});
-	addDinner.addEventListener('click', () => {});
-	addSnack.addEventListener('click', () => {});
+	addLunch.addEventListener('click', () => {
+        selectedUL = lunchUL;
+		buildSearch();
+    });
+	addDinner.addEventListener('click', () => {
+        selectedUL = dinnerUL;
+		buildSearch();
+    });
+    addSnack.addEventListener('click', () => {
+        selectedUL = snackUL;
+		buildSearch();
+    });
+    
+    const createLI = food => {
+        calorieCounter.innerText = parseInt(calorieCounter.innerText) + food.nf_calories;
+        const foodLiDiv = document.createElement('div')
+        foodLiDiv.className = 'food-li-div'
+
+        const foodName = document.createElement('div')
+        foodName.innerText = food.food_name
+
+        const deleteButton = document.createElement('button')
+        deleteButton.className = 'add-delete-button';
+        deleteButton.innerText = '-'
+        deleteButton.addEventListener('click', () => {
+            handleDelete(foodLiDiv, food.nf_calories)
+        })
+
+        foodLiDiv.append(deleteButton, foodName)
+        selectedUL.append(foodLiDiv)
+    }
+
+    const handleDelete = (li, calories) => {
+        li.remove()
+        calorieCounter.innerText = parseInt(calorieCounter.innerText) - calories
+    }
 });
