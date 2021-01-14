@@ -12,3 +12,5 @@ After you have set up your API and filled in the app-id and app-key on script.js
 open index.html will open the document in the browser even if the api is not set up and all of the functionality, including styling, will still work, however, searches will not return any data.
 
 Connect with me and ask me anything at linkedin.com/in/joe-burks  -  please include a message so I know how we are connected.
+
+Recording of the workshop - https://youtu.be/CH6LrwnNelo
