@@ -1,45 +1,72 @@
-html *
-{
-   font-family: Arial !important;
+* {
+   font-family: Arial;
 }
 
 div#header {
 	display: flex;
 	flex-direction: row;
 	color: darkslategray;
+	background-color: wheat;
 	border-style: solid;
 	border-width: 2px;
     border-radius: 10px;
     padding-left: 3vw;
-    padding-bottom: 0;
 }
+
+ul.header {
+	display: flex;
+	flex-direction: row;
+}
+
+button {
+	color: mintcream;
+	background-color: darkslategrey;
+	border-radius: 5px;
+}
+
+#sign-up {
+	color: darkslategrey;
+	background-color: mintcream;
+	border-radius: 5px;
+	margin-right: 1vw;
+}
+
+input {
+    margin-right: 1vw
+}
+
+
 div.inside-box {
 	text-align: center;
 	vertical-align: top;
 }
+
 div#search-container {
 	text-align: center;
 }
-ul#header {
-	display: flex;
-	flex-direction: row;
-    vertical-align: middle;
-    align-items: right;
-}
+
 #box-container {
 	display: flex;
 	flex-direction: row;
 }
+
 .box {
 	color: darkslategrey;
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 10px;
-	box-shadow: 5px 5px 5px grey;
+	box-shadow: 5px 5px 5px darkgrey;
 	width: 20vw;
 	height: 25vh;
 	margin: 3vw;
+	background-color: wheat;
 }
+
+ul.item-ul {
+	padding-left: 0;
+	justify-content: center;
+}
+
 h1 {
     margin-top: 5px;
     margin-bottom: -15px;
@@ -55,23 +82,6 @@ h4 {
 	border-radius: 5px;
 }
 
-button {
-	color: mintcream;
-	background-color: darkslategrey;
-	border-radius: 5px;
-}
-
-#sign-up {
-    color: darkslategrey;
-	background-color: mintcream;
-    border-radius: 5px;
-    margin-right: 1vw;
-}
-
-input {
-    margin-right: 1vw
-}
-
 .results-li {
     display: flex;
     flex-direction: row;
@@ -83,7 +93,7 @@ input {
 	border-width: 2px;
 	border-radius: 10px;
 	margin: 1%;
-    /* padding-left: 25vw; */
+	background-color: wheat;
 }
 
 div.food-item {
@@ -98,13 +108,13 @@ div.food-item {
 }
 
 .branded-results-div {
-	flex-basis: 60%;
+	flex-basis: 80%;
 	margin: 2%;
 }
 
 .add-delete-button {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 1vw;
+	margin-right: 1vw;
 }
 
 .cal-div {

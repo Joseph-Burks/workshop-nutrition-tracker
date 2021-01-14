@@ -8,55 +8,61 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<h1>Nutrition Tracker</h1>
-			<ul id='header'>
-				<button id='sign-up'>Sign Up</button>
-				<button>Log In</button>
-			</ul>
-		</div>
-		<h4>Input foods and track your nutrition.</h4>
-		<div id="box-container">
-			<div class="box">
-				<div class='inside-box'>
-					<h4>Breakfast</h4>
-				</div>
-				<ul class="breakfast-item-container">
+		<div id="page">
+			<div id="header">
+				<h1>Nutrition Tracker</h1>
+				<ul className="header">
+					<button id="sign-up">Sign Up</button>
+					<button>Log In</button>
 				</ul>
-				<div class='inside-box'>
-					<button id="add-breakfast">+ breakfast item</button>
+			</div>
+			<h4>Input foods and track your nutrition.</h4>
+			<div id="box-container">
+				<div class="box">
+					<div class="inside-box">
+						<h4>Breakfast</h4>
+					</div>
+					<ul id="breakfast-item-container" class='item-ul'></ul>
+					<div class="inside-box">
+						<button id="add-breakfast">+ breakfast item</button>
+					</div>
+				</div>
+				<div class="box">
+					<div class="inside-box">
+						<h4>Lunch</h4>
+					</div>
+					<ul id="lunch-item-container" class='item-ul'></ul>
+					<div class="inside-box">
+						<button id="add-lunch">+ lunch item</button>
+					</div>
+				</div>
+				<div class="box">
+					<div class="inside-box">
+						<h4>Dinner</h4>
+					</div>
+					<ul id="dinner-item-container" class='item-ul'></ul>
+					<div class="inside-box">
+						<button id="add-dinner">+ dinner item</button>
+					</div>
+				</div>
+				<div class="box">
+					<div class="inside-box">
+						<h4>Snacks</h4>
+					</div>
+					<ul id="snack-item-container" class='item-ul'></ul>
+					<div class="inside-box">
+						<button id="add-snacks">+ snack item</button>
+					</div>
 				</div>
 			</div>
-			<div class="box">
-				<div class='inside-box'>
-					<h4>Lunch</h4>
-				</div>
-				<ul class="lunch-item-container"></ul>
-				<div class='inside-box'>
-					<button id="add-lunch">+ lunch item</button>
-				</div>
+			<div id="calorie-count-div">
+				<h4>
+					Today's calories:
+					<h4 id="calorie-count">0</h4>
+				</h4>
 			</div>
-			<div class="box">
-				<div class='inside-box'>
-					<h4>Dinner</h4>
-				</div>
-				<ul class="dinner-item-container"></ul>
-				<div class='inside-box'>
-					<button id="add-dinner">+ dinner item</button>
-				</div>
-			</div>
-			<div class="box">
-				<div class='inside-box'>
-					<h4>Snacks</h4>
-				</div>
-				<ul class="snack-item-container"></ul>
-				<div class='inside-box'>
-					<button id="add-snacks">+ snack item</button>
-				</div>
-			</div>
+			<div id="search-container"></div>
 		</div>
-		<div id='calorie-count-div'><h4>Today's calories: <h4 id='calorie-count'>0</h4></h4></div>
-		<div id='search-container'></div>
 		<script src="script.js"></script>
 	</body>
 </html>
